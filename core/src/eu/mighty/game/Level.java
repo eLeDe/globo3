@@ -14,6 +14,7 @@ import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.PolygonShape;
 import com.badlogic.gdx.physics.box2d.World;
 
+import eu.mighty.game.assets.WholeGameAssets;
 import eu.mighty.game.component.BodyComponent;
 import eu.mighty.game.component.ExitMarkComponent;
 import eu.mighty.game.component.PlayerComponent;
@@ -36,18 +37,15 @@ public class Level {
 	private PooledEngine entityEngine;
 
 	private ArrayList<GameObjectInitialData> objects;
-
-	private TextureRegion greenGloboTextureRegion;
-
-
+	private WholeGameAssets wholeTextures; 
+	
 	public Level(PooledEngine entityEngine, World world) {
 		this.entityEngine = entityEngine;
 		this.world = world;
 
 		this.objects = new ArrayList<GameObjectInitialData>();
-
-		Texture tex = new Texture(Gdx.files.internal(Defaults.playerTextureFile));
-		this.greenGloboTextureRegion = new TextureRegion(tex, 0, 0, tex.getWidth(), tex.getHeight());
+		this.wholeTextures = new WholeGameAssets();
+		this.wholeTextures.load();
 	}
 
 	public void addGreenGlobo(int x, int y) {
@@ -86,7 +84,7 @@ public class Level {
 				e.add(new PlayerComponent());
 
 				TextureComponent tc = new TextureComponent();
-				tc.region = this.greenGloboTextureRegion;
+				tc.region = this.wholeTextures.getAnimation(WholeGameAssets.PLAYER_GREEN_GLOBO_IDLE, 0);
 				e.add(tc);
 
 				BodyComponent bc = new BodyComponent();
