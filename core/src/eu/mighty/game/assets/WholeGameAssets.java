@@ -39,9 +39,7 @@ public class WholeGameAssets extends AbstractAssets {
 		{
 		case PLAYER_GREEN_GLOBO_IDLE:
 			return new TextureRegion(this.greenGloboIdle1);
-		
 		}
-
 
 		return null;
 	}
@@ -54,8 +52,6 @@ public class WholeGameAssets extends AbstractAssets {
 
 	@Override
 	public void load() {
-		// TODO Auto-generated method stub
-		
 		//Load the sheet with the sprites
 		
 		allThingsSheet = loadTexture("playerImages/globo_green.png");
