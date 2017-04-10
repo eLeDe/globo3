@@ -15,13 +15,13 @@ import eu.mighty.game.Globo;
 
 public class IntroScreen extends DefaultScreen implements Screen {
 
-	SpriteBatch batch;
-	Texture img;
-	Sprite spr;
-	OrthographicCamera cam;
-	StretchViewport sv;
+	private SpriteBatch batch;
+	private Texture img;
+	private Sprite spr;
+	private OrthographicCamera cam;
+	private StretchViewport sv;
 
-	int waitFramesForHandle = Defaults.SCREEN_INITIAL_WAIT_TIME_SEC;
+	private int waitFramesForHandle = Defaults.SCREEN_INITIAL_WAIT_TIME_SEC;
 
 	public IntroScreen(Globo game) {
 		super(game);
